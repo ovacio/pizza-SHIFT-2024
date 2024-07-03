@@ -2,14 +2,15 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useCallback, useEffect } from "react";
 import cx from "classnames";
-import { CrossLogo } from "@/assets/index.tsx";
+import { CrossLogo } from "@/assets/index";
 import CardsGeneralApi from "@/api/CardsGeneralApi.tsx";
-import { translationIngredients } from "@/constants/TranslationList.tsx";
+import { translationIngredients } from "@/constants/translationList";
 import modalStyle from "@/components/Modal/modal.module.scss";
 import "@/components/Modal/modal.scss";
-import type { Modal, Pizza, PizzaToppings } from "@/constants/Interfaces.tsx";
+import type { Modal, Pizza, PizzaToppings } from "@/constants/interfaces";
+import { BaseApiUrl } from "@/constants/constants";
 
-const ModalComponent  = ({
+const ModalWindow  = ({
   isVisible,
   children,
   selectedPizzaId,
@@ -43,10 +44,10 @@ const ModalComponent  = ({
       setSelectedBasketPrice(selectedSize.price);
     }
     if (selectedPizzaBasket[0].length === 0 && selectedPizzaBasket[1] === "") {
-      setSelectedPizzaBasket(([pizzas, _]) => [[...pizzas, pizza], sizeList]);
+      setSelectedPizzaBasket(([pizzas]) => [[...pizzas, pizza], sizeList]);
     } else {
       setSelectedPizzaBasket([[], ""]);
-      setSelectedPizzaBasket(([pizzas, _]) => [[...pizzas, pizza], sizeList]);
+      setSelectedPizzaBasket(([pizzas]) => [[...pizzas, pizza], sizeList]);
     }
   };
 
@@ -78,7 +79,7 @@ const ModalComponent  = ({
 //     }
 //   }, [cart]);
 
-  const handleToggleTopping = (
+  const handleChooseTopping = (
     cost: number,
     toppingName: string,
     topping: PizzaToppings
@@ -109,6 +110,8 @@ const ModalComponent  = ({
       price: selectedBasketPrice,
       initialPrice: selectedBasketPrice,
     };
+
+    console.log(newPizza)
 
     //setCart((prevCart = []) => [...prevCart, newPizza]);
 
@@ -152,7 +155,7 @@ const ModalComponent  = ({
                   {selectedPizza ? (
                     <>
                       <div className="modal_container_logoPizza">
-                        <img src={selectedPizza.img} alt={selectedPizza.name} />
+                        <img src={`${BaseApiUrl}${selectedPizza.img}`} alt={selectedPizza.name} />
                       </div>
                       <div className="modal_container_ingredients">
                         <div className="modal_container_ingredients2">
@@ -217,14 +220,14 @@ const ModalComponent  = ({
                                   key={index}
                                   className="button_add_ingredient"
                                   onClick={() =>
-                                    handleToggleTopping(
+                                    handleChooseTopping(
                                       topping.cost,
                                       topping.name,
                                       topping
                                     )
                                   }
                                 >
-                                  <img src={topping.img} />
+                                  <img src={`${BaseApiUrl}${topping.img}`} />
                                   <div className="topping_name">
                                     <span>
                                       {translationIngredients[topping.name] ||
@@ -264,4 +267,4 @@ const ModalComponent  = ({
   );
 };
 
-export default ModalComponent;
+export default ModalWindow;

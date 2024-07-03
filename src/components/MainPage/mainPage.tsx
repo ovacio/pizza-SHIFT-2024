@@ -1,9 +1,13 @@
 import "./mainPage.scss";
 import { useState, useCallback } from "react";
-import { Pizza } from "@/constants/Interfaces";
-import { CardsGeneralApi, ModalComponent  } from '@/constants/Imports';
+import { Pizza } from "@/constants/interfaces";
+import {
+  CardsGeneralApi,
+  ModalWindow,
+  PizzaCard,
+} from "@/constants/imports";
 
-const MainPageComponent = () => {
+const MainPage= () => {
   const [pizzaData, setPizzaData] = useState<Pizza[]>([]);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedPizzaId, setSelectedPizzaId] = useState<number | null>(null);
@@ -18,35 +22,20 @@ const MainPageComponent = () => {
   }, []);
 
   return (
-    <>
+    <main>
       <div className="container_cards">
         <CardsGeneralApi onDataLoaded={handleDataLoaded} />
         {pizzaData.map((pizza) => (
-          <div key={pizza.id} className="pizza_container">
-            <img src={pizza.img} alt={pizza.name} />
-            <div className={`pizza_card${pizza.id}`}>
-              <div className="pizza_card_information">
-                <h3>{pizza.name}</h3>
-                <span>{pizza.description}</span>
-              </div>
-              <button
-                className="animated-button"
-                onClick={() => openModal(pizza.id)}
-              >
-                <span>Выбрать</span>
-                <span></span>
-              </button>
-            </div>
-          </div>
+          <PizzaCard pizza={pizza} openModal={openModal} key={pizza.id} />
         ))}
       </div>
-      <ModalComponent 
+      <ModalWindow
         isVisible={isVisible}
         onClose={() => setIsVisible(false)}
         selectedPizzaId={selectedPizzaId}
-      ></ModalComponent >
-    </>
+      />
+    </main>
   );
 };
 
-export default MainPageComponent;
+export default MainPage;

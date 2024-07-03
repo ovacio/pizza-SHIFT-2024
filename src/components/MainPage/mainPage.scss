@@ -21,74 +21,72 @@
   height: auto;
 }
 
-@for $i from 1 through 20 {
-  .pizza_card#{$i} {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+.pizza_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 
-    h3 {
-      padding-bottom: 10px;
-    }
+  h3 {
+    padding-bottom: 10px;
+  }
 
-    .pizza_card_information {
-      height: 104px;
-    }
+  .pizza_card_information {
+    height: 104px;
+  }
 
-    button {
-      margin-top: 40px;
-      width: 300px;
-    }
+  button {
+    margin-top: 40px;
+    width: 300px;
+  }
 
-    .animated-button {
-      position: relative;
-      display: inline-block;
-      padding: 12px 24px;
-      border: none;
-      font-size: 16px;
-      background-color: inherit;
-      border-radius: 100px;
-      font-weight: 600;
-      color: rgb(39, 39, 39);
-      background-color: #e2ba36;
-      box-shadow: 0 0 0 2px #08080820;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
+  .animated-button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: rgb(39, 39, 39);
+    background-color: #e2ba36;
+    box-shadow: 0 0 0 2px #08080820;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-    .animated-button span:last-child {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
-      background-color: #e2ba36;
-      border-radius: 50%;
-      opacity: 0;
-      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-    }
+  .animated-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #e2ba36;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-    .animated-button span:first-child {
-      position: relative;
-      z-index: 1;
-    }
+  .animated-button span:first-child {
+    position: relative;
+    z-index: 1;
+  }
 
-    .animated-button:hover {
-      box-shadow: 0 0 0 5px #2195f360;
-      color: #e9e4e4;
-    }
+  .animated-button:hover {
+    box-shadow: 0 0 0 5px #2195f360;
+    color: #e9e4e4;
+  }
 
-    .animated-button:active {
-      scale: 0.95;
-    }
+  .animated-button:active {
+    scale: 0.95;
+  }
 
-    .animated-button:hover span:last-child {
-      width: 200px;
-      height: 200px;
-      opacity: 1;
-    }
+  .animated-button:hover span:last-child {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
   }
 }

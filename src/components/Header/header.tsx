@@ -3,7 +3,7 @@ import { logoSite, logoProfile, logoBasket, logoExit } from "@/assets/index";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const header = () => {
+const HeaderComponent = () => {
   // Заглушка для дальнейшего изменения
   const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false);
 
@@ -38,4 +38,4 @@ const header = () => {
   )
 };
 
-export default header;
+export default HeaderComponent;

@@ -54,10 +54,10 @@ export interface InformationOrder {
   lastname: string;
   email: string;
   address: string;
-  receiverAddress: ReceiverAdress[];
+  receiverAddress: RecipientAddress[];
 }
 
-export interface ReceiverAdress {
+export interface RecipientAddress {
   street: string;
   house: string;
   apartment: string;
@@ -98,11 +98,16 @@ export interface ApiResponse {
   catalog: Pizza[];
 }
 
-export interface Session {
+export interface UserInfo {
   phone: string;
   firstname: string;
   middlename: string;
   lastname: string;
   email: string;
   city: string;
+}
+
+export interface PizzaCardProps {
+    pizza: Pizza;
+    openModal: (id: number) => void;
 }

@@ -57,7 +57,7 @@
 
 .modal_container_ingredients span{
     font-family: "Noto Sans", sans-serif;
-    
+    margin-top: 10px;
 }
 
 .topping_name{
@@ -68,11 +68,6 @@
 .cross_logo{
     width: 24px;
     height: 24px;
-    /* position: absolute;
-    
-    left: 73.5%;
-    top: 25%;
-    cursor: pointer; */
 }
 
 .modal_container_cross{
@@ -87,10 +82,6 @@
     font-size: 16px;
 }
 
-li{
-    list-style-type: none;
-}
-
 .tabs_wrap ul{
 	display: flex;
     padding: 0;
@@ -99,7 +90,7 @@ li{
 }
 
 .tabs_wrap ul li{
-	width: 117px;
+	width: 140px;
     font-size: 13px;
     text-align: center;
     background: #e9ecf1;
@@ -146,12 +137,10 @@ li{
     -webkit-box-align: center;
     align-items: center;
     font: inherit;
-    margin: 8px 8px 8px 8px;
+    margin: 8px;
     padding: 8px;
     background: rgb(255, 255, 255);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(255, 255, 255);
+    border: 1px, solid, rgb(255, 255, 255);
     border-image: initial;
     border-radius: 12px;
     flex-flow: column;
