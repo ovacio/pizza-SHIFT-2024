@@ -1,0 +1,56 @@
+@import '../UI/reset.scss';
+
+.header_navigation {
+    display: flex;
+    height: 87px;
+    border-bottom: 2px solid rgba(90, 84, 84, 0.2);
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 700;
+}
+
+.header_navigation a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header_left, .header_right {
+    display: flex;
+    align-items: center;
+}
+
+.header_profile, .header_basket, .header_userLogin, .header_userExit {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.header_profile a, .header_basket a, .header_userLogin a, .header_userExit a {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    background-image: linear-gradient(
+    to right,
+    #0bd0ebb9,
+    #0bd0ebb9 50%,
+    #000 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.header_profile a:hover, .header_basket a:hover, .header_userLogin a:hover, .header_userExit a:hover {
+    background-position: 0;
+}
+   
+.header_profile a:hover::before, .header_basket a:hover::before, .header_userLogin a:hover::before, .header_userExit a:hover::before{
+    width: 100%;
+}
+
+.header_navigation img {
+    margin-right: 8px;
+}
