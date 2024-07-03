@@ -19,13 +19,13 @@
     align-items: center;
 }
 
-.header_profile, .header_basket, .header_userLogin, .header_userExit {
+.header_profile, .header_basket, .header_userAction {
     display: flex;
     align-items: center;
     margin-left: 20px;
 }
 
-.header_profile a, .header_basket a, .header_userLogin a, .header_userExit a {
+.header_profile a, .header_basket a, .header_userAction a {
     display: flex;
     align-items: center;
     color: inherit;
@@ -43,11 +43,11 @@
   transition: all 0.3s ease-in-out;
 }
 
-.header_profile a:hover, .header_basket a:hover, .header_userLogin a:hover, .header_userExit a:hover {
+.header_profile a:hover, .header_basket a:hover, .header_userAction a:hover {
     background-position: 0;
 }
    
-.header_profile a:hover::before, .header_basket a:hover::before, .header_userLogin a:hover::before, .header_userExit a:hover::before{
+.header_profile a:hover::before, .header_basket a:hover::before, .header_userAction a:hover::before{
     width: 100%;
 }
 

@@ -1,4 +1,3 @@
-import './mainPage.css'
 import './mainPage.scss'
 
 const MainPage = () => {
