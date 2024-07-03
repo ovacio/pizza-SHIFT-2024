@@ -1,0 +1,100 @@
+html, body, #root{
+    height: 100%;
+}
+
+.form_profile{
+    display: flex;
+    justify-content: center;
+}
+
+.profile_forms{
+    display:flex;
+    width: 800px;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile_forms button{
+    margin-top: 40px;
+    width: 328px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile_forms input {
+    width: 464px;
+    padding: 12px 8px 12px 12px;
+    border-radius: 12px;
+    font-family: 'Inter', cursive;
+    font-weight: 600;
+}
+
+
+.input_profile1{
+    margin-top: 5px;
+}
+.save_profile {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 10px;
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    background-color: #e2ba36;
+    box-shadow: 0 0 0 2px #08080820;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .save_profile span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #e2ba36;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .save_profile span:first-child {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .save_profile:hover {
+    box-shadow: 0 0 0 5px #2195f360;
+    color: #ffffff;
+  }
+  
+  .save_profile:active {
+    scale: 0.95;
+  }
+  
+  .save_profile:hover span:last-child {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+  }
+
+.profile_number_container{
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.profile_forms div{
+    margin-top: 30px;
+}
+
+.profile_forms span{
+    display: flex;
+    font-weight: 600;
+}

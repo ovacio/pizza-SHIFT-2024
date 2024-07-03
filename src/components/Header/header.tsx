@@ -1,11 +1,18 @@
 import "./header.scss";
 import { logoSite, logoProfile, logoBasket, logoExit } from "@/assets/index";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useAuth } from "@/constants/imports";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const HeaderComponent = () => {
-  // Заглушка для дальнейшего изменения
-  const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false);
+
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
+  const handleGet = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+    navigate('/')
+  }
 
   return (
   <nav className="header_navigation">
@@ -14,7 +21,7 @@ const HeaderComponent = () => {
         <img src={logoSite} alt="Site Logo" />
       </NavLink>
       <div className="header_profile">
-        <NavLink to="/profile">
+      <NavLink to={isLoggedIn ? '/profile' : '/login'}>
           <img src={logoProfile} alt="Profile" />
           <span>Профиль</span>
         </NavLink>
@@ -28,7 +35,7 @@ const HeaderComponent = () => {
         </NavLink>
       </div>
       <div className="header_userAction">
-        <NavLink to="">
+        <NavLink to={isLoggedIn ? '/profile' : '/login' } onClick={isLoggedIn ? () => {} : handleGet}>
           <img src={logoExit} alt="Action" />
           <span>{isLoggedIn ? "Выйти" : "Войти"}</span>
         </NavLink>
