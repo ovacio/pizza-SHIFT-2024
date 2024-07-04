@@ -9,6 +9,7 @@ import modalStyle from "@/components/Modal/modal.module.scss";
 import "@/components/Modal/modal.scss";
 import type { Modal, Pizza, PizzaToppings } from "@/constants/interfaces";
 import { BaseApiUrl } from "@/constants/constants";
+import { useCart } from "@/constants/imports";
 
 const ModalWindow  = ({
   isVisible,
@@ -32,7 +33,7 @@ const ModalWindow  = ({
     [Pizza[], string]
   >([[], ""]);
   // Заглушка для дальнейшего использования под корзину
-  //const { cart, setCart } = useCart();
+  const { cart, setCart } = useCart();
 
   const handleSizeClick = (size: string, sizeList: string, pizza: Pizza) => {
     setSelectedSizePizza(size);
@@ -73,11 +74,11 @@ const ModalWindow  = ({
   }, [selectedPizzaId, pizzaData]);
 
   // ОШИБКА исправлена, при обновлении страницы происходил setItem по 'cart' на [], сделана проверка на cart.length > 0
-//   useEffect(() => {
-//     if (cart.length > 0) {
-//       localStorage.setItem("cart", JSON.stringify(cart));
-//     }
-//   }, [cart]);
+  useEffect(() => {
+    if (cart.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart]);
 
   const handleChooseTopping = (
     cost: number,
@@ -113,7 +114,7 @@ const ModalWindow  = ({
 
     console.log(newPizza)
 
-    //setCart((prevCart = []) => [...prevCart, newPizza]);
+    setCart((prevCart = []) => [...prevCart, newPizza]);
 
     handleCloseClick();
   };

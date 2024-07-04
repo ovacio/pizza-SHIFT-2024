@@ -4,6 +4,7 @@ import { BasketEmpty, Cross2 } from "@/assets";
 import { useAuth, useCart } from "@/constants/imports";
 import { translationIngredients } from "@/constants/translationList";
 import "./basket.scss";
+import { BaseApiUrl } from "@/constants/constants";
 
 const Basket = () => {
   const { cart, setCart, updatePricePlus, updatePriceMinus } = useCart();
@@ -69,7 +70,7 @@ const Basket = () => {
             <div className="basket_cards">
               {cart.map((item, index) => (
                 <div key={index} className="pizza_list_basket">
-                  <img src={item.pizza.img} className="pizza_img_basket"></img>
+                  <img src={`${BaseApiUrl}${item.pizza.img}`} className="pizza_img_basket"></img>
                   <h3>{item.pizza.name}</h3>
                   <span>
                     {item.size},{" "}
