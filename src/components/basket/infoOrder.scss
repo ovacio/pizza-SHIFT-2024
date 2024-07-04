@@ -1,0 +1,113 @@
+html, body, #root{
+  height: 100%;
+}
+
+.form_profile{
+  display: flex;
+  justify-content: center;
+}
+
+.info_order_forms{
+  display:flex;
+  width: 800px;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.info_order_forms button{
+  margin-top: 30px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  margin: 0 40px 0 40px;
+}
+
+.info_order_forms input {
+  width: 464px;
+  padding: 12px 8px 12px 12px;
+  border-radius: 12px;
+  font-family: 'Inter', cursive;
+  font-weight: 600;
+}
+
+
+.input_profile1{
+  margin-top: 5px;
+}
+.save_info {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 10px;
+  width: 200px;
+  border: none;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  background-color: #e2ba36;
+  box-shadow: 0 0 0 2px #08080820;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.save_info span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #e2ba36;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.save_info span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.save_info:hover {
+  box-shadow: 0 0 0 5px #2195f360;
+  color: #ffffff;
+}
+
+.save_info:active {
+  scale: 0.95;
+}
+
+.save_info:hover span:last-child {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+}
+
+.profile_number_container{
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.info_order_forms div{
+  margin-top: 30px;
+}
+
+.info_order_forms span{
+  display: flex;
+  font-weight: 600;
+}
+
+.information_order_buttons {
+  display: flex;
+}
+
+@for $i from 2 through 6 {
+    .input_profile#{$i} {
+      margin-top: 5px;
+    }
+  }
+  
