@@ -1,0 +1,88 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.form_autorization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 30%;
+  line-height: 30px;
+  font-weight: 700;
+}
+
+.phone_number {
+  padding: 12px 8px 12px 12px;
+  width: 250px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+.phone_code {
+  padding: 12px 8px 12px 12px;
+  width: 250px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.autorization {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 300px;
+}
+
+.autorization_button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 10px;
+  width: 200px;
+  border: none;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  background-color: #e2ba36;
+  box-shadow: 0 0 0 2px #08080820;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.autorization_button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #e2ba36;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.autorization_button span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.autorization_button:hover {
+  box-shadow: 0 0 0 5px #2195f360;
+  color: #ffffff;
+}
+
+.autorization_button:active {
+  scale: 0.95;
+}
+
+.autorization_button:hover span:last-child {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+}
