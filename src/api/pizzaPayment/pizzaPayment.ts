@@ -1,33 +1,25 @@
-import axios from 'axios';
-
 import { DebitCard, InformationOrder, PostData } from '@/types/interfacesApi';
 import { CartItem } from '@/types/interfacesPizza';
 import { getCartData, getOrderData, getPaymentData } from '../localStorage';
 
 const handleCheckout = async (
-  orderData: InformationOrder | null,
+  orderData: InformationOrder,
   cartData: CartItem[],
-  paymentData: DebitCard | null,
+  paymentData: DebitCard,
 ) => {
-  if (!orderData || !paymentData || !cartData) {
-    console.error('Ошибка: данные не загружены из localStorage');
-    return;
-  }
-
-  const receiverAddress = {
-    street: '',
-    house: '',
-    apartment: '',
-    comment: '',
-  };
-
-  if (orderData.receiverAddress) {
-    const addressParts = orderData.receiverAddress;
-    receiverAddress.street = addressParts[0].street;
-    receiverAddress.house = addressParts[0].house;
-    receiverAddress.apartment = addressParts[0].apartment;
-    receiverAddress.comment = addressParts[0].comment;
-  }
+  const receiverAddress = orderData.receiverAddress
+    ? {
+        street: orderData.receiverAddress[0].street,
+        house: orderData.receiverAddress[0].house,
+        apartment: orderData.receiverAddress[0].apartment,
+        comment: orderData.receiverAddress[0].comment || 'Ничего',
+      }
+    : {
+        street: '',
+        house: '',
+        apartment: '',
+        comment: 'Ничего',
+      };
 
   const pizzas = cartData.map((item) => ({
     id: item.pizza.id.toString(),
@@ -60,13 +52,7 @@ const handleCheckout = async (
     pizzas,
   };
 
-  try {
-    const response = await axios.post('https://shift-backend.onrender.com/pizza/payment', postData);
-    console.log(response);
-  } catch (error) {
-    console.log(postData);
-    console.error('Ошибка:', error);
-  }
+  return postData;
 };
 
 export const pizzaPayment = {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { pizzaPayment } from '@/api/imports';
+import { pizzaPayment, postPayment } from '@/api/imports';
 import { ModalWindowBasket } from '@/components/imports';
 import { DebitCard } from '@/types/interfacesApi';
 
@@ -31,7 +31,7 @@ const CardPayment = () => {
     }));
   };
 
-  const HandleSavePayment = () => {
+  const HandleSavePayment = async () => {
     const paymentInfo = { ...formData };
     localStorage.setItem('information_payment', JSON.stringify(paymentInfo));
 
@@ -39,9 +39,7 @@ const CardPayment = () => {
     const paymentData = getPaymentData();
     const orderData = getOrderData();
 
-    if (orderData) {
-      handleCheckout(orderData, cartData, paymentData);
-    }
+    postPayment(await handleCheckout(orderData, cartData, paymentData));
 
     setIsVisible(true);
   };

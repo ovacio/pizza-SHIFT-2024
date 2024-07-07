@@ -6,12 +6,12 @@ export const getCartData = (): CartItem[] => {
   return cart ? JSON.parse(cart) : [];
 };
 
-export const getPaymentData = (): DebitCard | null => {
+export const getPaymentData = (): DebitCard => {
   const payment = localStorage.getItem('information_payment');
   return payment ? JSON.parse(payment) : null;
 };
 
-export const getOrderData = (): InformationOrder | null => {
+export const getOrderData = (): InformationOrder => {
   const order = localStorage.getItem('information_order');
   return order ? JSON.parse(order) : null;
 };
