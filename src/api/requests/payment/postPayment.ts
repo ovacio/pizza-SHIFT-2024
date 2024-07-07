@@ -1,4 +1,4 @@
-import { instance } from '../instanse';
+import { instance } from '../../instanse';
 import { API_URL } from '@/constants/constants';
 import { PostData } from '@/types/interfacesApi';
 

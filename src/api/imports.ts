@@ -1,6 +1,6 @@
-export { default as getPizzaCatalog } from '@/api/pizzaCatalog/getPizzaCatalog';
-export { postOtpsCode } from '@/api/otps/postOtpsCode';
-export { default as useSessionUser } from '@/api/session/getSession';
-export { updateProfile } from '@/api/updateProfile/updateProfile';
+export { default as getPizzaCatalog } from '@/api/requests/pizzaCatalog/getPizzaCatalog';
+export { postOtpsCode } from '@/api/requests/otps/postOtpsCode';
+export { default as useSessionUser } from '@/api/requests/session/getSession';
+export { updateProfile } from '@/api/requests/updateProfile/updateProfile';
 export { pizzaPayment } from '@/api/pizzaPayment/pizzaPayment';
-export { postPayment } from '@/api/payment/postPayment';
+export { postPayment } from '@/api/requests/payment/postPayment';
