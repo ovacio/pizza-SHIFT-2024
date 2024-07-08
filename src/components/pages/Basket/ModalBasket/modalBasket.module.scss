@@ -17,6 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 16px;
   box-sizing: border-box;
 }
@@ -25,7 +26,14 @@
   padding: 20px;
   border-radius: 10px;
   background: #fff;
-  width: 924px;
+  width: 500px;
   height: auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal h2{
+  margin: 36px 0px 24px 0px
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { useSessionUser, updateProfile } from '@/api/imports';
+import { getUserData } from '@/api/localStorage';
 import { User } from '@/types/interfacesApi';
 
 import './profile.scss';
@@ -20,9 +21,8 @@ const UserProfile = () => {
   const { getSessionUser } = useSessionUser();
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      setFormData(JSON.parse(savedUser));
+    if (getUserData) {
+      setFormData(getUserData);
     } else {
       setFormData({
         phone: user?.phone || '',
@@ -46,7 +46,7 @@ const UserProfile = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     updateProfile(
-      token,
+      token!,
       formData,
       (updatedUser) => {
         setFormData(updatedUser);

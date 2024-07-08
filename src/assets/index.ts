@@ -3,5 +3,7 @@ export { default as logoProfile } from '@/assets/icons/user.svg';
 export { default as logoBasket } from '@/assets/icons/basket.svg';
 export { default as logoExit } from '@/assets/icons/exit.svg';
 export { default as CrossLogo } from '@/assets/icons/cross.svg';
-export { default as BasketEmpty } from '@/assets/basket_empty.svg';
-export { default as Cross2 } from '@/assets/cross2.svg';
+export { default as BasketEmpty } from '@/assets/icons/basket_empty.svg';
+export { default as Cross2 } from '@/assets/icons/cross2.svg';
+export { default as accept } from "@/assets/icons/accept.svg"
+export { default as orders } from "@/assets/icons/time.svg";

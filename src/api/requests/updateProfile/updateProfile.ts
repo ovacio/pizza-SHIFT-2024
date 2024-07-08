@@ -4,7 +4,7 @@ import { User } from '@/types/interfacesApi';
 import { API_URL } from '@/constants/constants';
 
 export const updateProfile = async (
-  token: string | null,
+  token: string,
   userData: {
     firstname: string;
     middlename: string;
@@ -14,7 +14,7 @@ export const updateProfile = async (
     phone: string;
   },
   updateUserState: (user: User) => void,
-  getSessionUser: (token: string | null) => void,
+  getSessionUser: (token: string) => void,
 ) => {
   const data = {
     profile: {

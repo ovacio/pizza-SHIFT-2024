@@ -1,5 +1,5 @@
 import { CartItem } from '@/types/interfacesPizza';
-import { DebitCard, InformationOrder } from '@/types/interfacesApi';
+import { DebitCard, InformationOrder, User } from '@/types/interfacesApi';
 
 export const getCartData = (): CartItem[] => {
   const cart = localStorage.getItem('cart');
@@ -15,3 +15,12 @@ export const getOrderData = (): InformationOrder => {
   const order = localStorage.getItem('information_order');
   return order ? JSON.parse(order) : null;
 };
+
+export const getUserData = (): User => {
+  const user = localStorage.getItem('user');
+  return user ? JSON.parse(user) : null;
+};
+
+export const putUserData = (order: User) => {
+  localStorage.setItem('user', JSON.stringify(order));
+}
