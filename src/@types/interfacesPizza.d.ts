@@ -1,14 +1,14 @@
-export interface PizzaSize {
+interface PizzaSize {
   name: string;
   price: number;
 }
 
-export interface PizzaDough {
+interface PizzaDough {
   name: string;
   price: number;
 }
 
-export interface Pizza {
+interface Pizza {
   id: number;
   name: string;
   description: string;
@@ -19,13 +19,13 @@ export interface Pizza {
   sizes: PizzaSize[];
 }
 
-export interface PizzaToppings {
+interface PizzaToppings {
   name: string;
   cost: number;
   img: string;
 }
 
-export interface CartItem {
+interface CartItem {
   pizza: Pizza;
   size: string;
   toppings: PizzaToppings[];

@@ -5,8 +5,8 @@ import cx from 'classnames';
 
 import { CrossLogo } from '@/assets/index';
 import { getPizzaCatalog } from '@/api/imports';
-import { translationIngredients } from '@/constants/translationList';
-import type { Pizza, PizzaToppings } from '@/types/interfacesPizza';
+import { translationIngredients, translationSizesPizza } from '@/constants/translationList';
+import type { Pizza, PizzaToppings } from '@/@types/interfacesPizza';
 import { API_URL } from '@/constants/constants';
 import { useCart } from '@/components/imports';
 
@@ -33,8 +33,8 @@ const Modal = ({ isVisible, children, pizza, className, overlayClassName, onClos
   // Заглушка для дальнейшего использования под корзину
   const { cart, setCart } = useCart();
 
-  const handleSizeClick = (size: string, sizeList: string, pizza: Pizza) => {
-    setSelectedSizePizza(size);
+  const handleSizeClick = (sizeList: string, pizza: Pizza) => {
+    setSelectedSizePizza(translationSizesPizza[sizeList]);
 
     const selectedSize = selectedPizza?.sizes.find((pizzaSize) => pizzaSize.name === sizeList);
     if (selectedSize) {
@@ -155,19 +155,19 @@ const Modal = ({ isVisible, children, pizza, className, overlayClassName, onClos
                             <ul>
                               <li
                                 button-tabs="true"
-                                onClick={() => handleSizeClick('25 см', 'SMALL', selectedPizza)}
+                                onClick={() => handleSizeClick('SMALL', selectedPizza)}
                               >
                                 Маленькая
                               </li>
                               <li
                                 button-tabs="true"
-                                onClick={() => handleSizeClick('30 см', 'MEDIUM', selectedPizza)}
+                                onClick={() => handleSizeClick('MEDIUM', selectedPizza)}
                               >
                                 Средняя
                               </li>
                               <li
                                 button-tabs="true"
-                                onClick={() => handleSizeClick('35 см', 'LARGE', selectedPizza)}
+                                onClick={() => handleSizeClick('LARGE', selectedPizza)}
                               >
                                 Большая
                               </li>
@@ -186,7 +186,7 @@ const Modal = ({ isVisible, children, pizza, className, overlayClassName, onClos
                                 <img src={`${API_URL}${topping.img}`} />
                                 <div className="topping_name">
                                   <span>
-                                    {translationIngredients[topping.name] || topping.name}
+                                    {translationIngredients[topping.name]}
                                   </span>
                                 </div>
                                 <div className="topping_cost">

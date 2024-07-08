@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { useSessionUser, updateProfile } from '@/api/imports';
 import { getUserData } from '@/api/localStorage';
-import { User } from '@/types/interfacesApi';
+import { User } from '@/@types/interfacesApi';
 
 import './profile.scss';
 

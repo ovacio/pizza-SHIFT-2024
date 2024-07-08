@@ -1,5 +1,5 @@
 import { API_URL } from '@/constants/constants';
-import { Pizza } from '@/types/interfacesPizza';
+import { Pizza } from '@/@types/interfacesPizza';
 
 import './mainPage.scss';
 
@@ -15,6 +15,9 @@ const PizzaCard = ({ pizza, openModal }: PizzaCardProps) => (
       <div className="pizza_card_information">
         <h3>{pizza.name}</h3>
         <span>{pizza.description}</span>
+      </div>
+      <div className="pizza_price">
+        <h3>от {pizza.sizes[0].price} ₽</h3>
       </div>
       <button className="animated-button" onClick={() => openModal(pizza.id)}>
         <span>Выбрать</span>

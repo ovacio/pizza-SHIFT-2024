@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { pizzaPayment, postPayment } from '@/api/imports';
 import { ModalWindowBasket } from '@/components/imports';
-import { DebitCard } from '@/types/interfacesApi';
+import { DebitCard } from '@/@types/interfacesApi';
 
 import './cardPayment.scss';
 

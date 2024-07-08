@@ -1,7 +1,4 @@
-import axios from 'axios';
-
-import { User } from '@/types/interfacesApi';
-import { API_URL } from '@/constants/constants';
+import { instance } from '@/api/instanse';
 
 export const updateProfile = async (
   token: string,
@@ -28,7 +25,7 @@ export const updateProfile = async (
   };
 
   try {
-    const response = await axios.patch(`${API_URL}/users/profile`, data, {
+    const response = await instance.patch(`/users/profile`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

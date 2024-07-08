@@ -1,5 +1,5 @@
-import { CartItem } from '@/types/interfacesPizza';
-import { DebitCard, InformationOrder, User } from '@/types/interfacesApi';
+import { CartItem } from '@/@types/interfacesPizza';
+import { DebitCard, InformationOrder, User } from '@/@types/interfacesApi';
 
 export const getCartData = (): CartItem[] => {
   const cart = localStorage.getItem('cart');

@@ -1,5 +1,5 @@
-import { DebitCard, InformationOrder, PostData } from '@/types/interfacesApi';
-import { CartItem } from '@/types/interfacesPizza';
+import { DebitCard, InformationOrder, PostData } from '@/@types/interfacesApi';
+import { CartItem } from '@/@types/interfacesPizza';
 import { getCartData, getOrderData, getPaymentData } from '../localStorage';
 
 const handleCheckout = async (

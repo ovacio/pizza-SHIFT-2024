@@ -19,8 +19,19 @@ enum Ingredients {
   MEATBALLS = 'MEATBALLS'
 }
 
+enum SizesPizza {
+  SMALL = 'SMALL',
+  MEDIUM = 'MEDIUM',
+  LARGE = 'LARGE'
+}
 
-export const translationIngredients: { [key in Ingredients]: string } = {
+export const translationSizesPizza: { [key: string]: string } = {
+  [SizesPizza.SMALL]: 'Маленькая, 25 см',
+  [SizesPizza.MEDIUM]: 'Средняя, 30 см',
+  [SizesPizza.LARGE]: 'Большая, 35 см'
+}
+
+export const translationIngredients: { [key: string]: string } = {
   [Ingredients.BACON]: 'Бекон',
   [Ingredients.BASIL]: 'Базилик',
   [Ingredients.CHEDDAR]: 'Чеддер',

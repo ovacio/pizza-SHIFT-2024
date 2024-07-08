@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { RecipientAddress, InformationOrder } from '@/types/interfacesApi';
+import { RecipientAddress, InformationOrder } from '@/@types/interfacesApi';
 
 import './infoOrder.scss';
 

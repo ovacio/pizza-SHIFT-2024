@@ -1,10 +1,12 @@
-export interface DebitCard {
+// src/@types/interfacesApi.d.ts
+
+interface DebitCard {
   pan: string;
   expireDate: string;
   cvv: string;
 }
 
-export interface InformationOrder {
+interface InformationOrder {
   phone: string;
   firstname: string;
   lastname: string;
@@ -13,14 +15,14 @@ export interface InformationOrder {
   receiverAddress: RecipientAddress[];
 }
 
-export interface RecipientAddress {
+interface RecipientAddress {
   street: string;
   house: string;
   apartment: string;
   comment: string;
 }
 
-export interface PostData {
+interface PostData {
   receiverAddress: {
     street: string;
     house: string;
@@ -50,7 +52,7 @@ export interface PostData {
   }[];
 }
 
-export interface UserInfo {
+interface UserInfo {
   phone: string;
   firstname: string;
   middlename: string;
@@ -59,7 +61,7 @@ export interface UserInfo {
   city: string;
 }
 
-export interface User {
+interface User {
   phone: string;
   firstname: string;
   middlename: string;
@@ -68,7 +70,7 @@ export interface User {
   city: string;
 }
 
-export interface SessionResponse {
+interface SessionResponse {
   success: boolean;
   reason: string;
   user: User;

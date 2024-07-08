@@ -12,7 +12,6 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -21,10 +20,14 @@
   height: auto;
 }
 
+.pizza_price {
+  display: flex;
+  margin: 16px 0px 24px 0px;
+}
+
 .pizza_card {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-top: 20px;
 
   h3 {
@@ -36,7 +39,6 @@
   }
 
   button {
-    margin-top: 40px;
     width: 300px;
   }
 

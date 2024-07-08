@@ -1,5 +1,3 @@
-import { Pizza } from '@/types/interfacesPizza';
-import { API_URL } from '@/constants/constants';
 import { instance } from '@/api/instanse';
 
 interface CardsGeneralApiProps {
@@ -11,7 +9,7 @@ export interface ApiResponse {
 }
 
 const getPizzaCatalog = async ({ onDataLoaded }: CardsGeneralApiProps) => {
-  const response = await instance.get<ApiResponse>(`${API_URL}/pizza/catalog`);
+  const response = await instance.get<ApiResponse>(`/pizza/catalog`);
   if (onDataLoaded) {
     onDataLoaded(response.data.catalog);
   }

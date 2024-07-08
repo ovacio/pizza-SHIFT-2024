@@ -28,5 +28,5 @@
       "@data/*": ["src/data/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/@types"]
 }
