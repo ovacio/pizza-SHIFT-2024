@@ -75,7 +75,7 @@ const Basket = () => {
                     {item.size === 'MEDIUM' ? '30 см' : item.size === 'LARGE' ? '35 см' : '25 см'},
                     традиционное тесто,{' '}
                     {item.toppings
-                      .map((topping) => translationIngredients[topping.name])
+                      .map((topping: PizzaToppings) => translationIngredients[topping.name])
                       .join(', ')}
                   </span>
                   <a>Изменить</a>

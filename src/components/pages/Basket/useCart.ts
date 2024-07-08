@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { CartContext } from './cartContext';
-import { CartItem } from '@/@types/interfacesPizza';
 
 interface CartContextProps {
   cart: CartItem[];

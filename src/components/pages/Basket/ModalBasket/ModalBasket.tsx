@@ -16,6 +16,7 @@ export interface ModalBasket {
   children?: React.ReactNode;
   className?: string;
   overlayClassName?: string;
+  isSuccessPayment: boolean;
   onClose: () => void;
 }
 
@@ -24,6 +25,7 @@ const ModalWindowBasket = ({
   children,
   className,
   overlayClassName,
+  isSuccessPayment,
   onClose,
 }: ModalBasket) => {
   const { cart, setCart } = useCart();
@@ -45,7 +47,7 @@ const ModalWindowBasket = ({
 
   return createPortal(
     <AnimatePresence>
-      {isVisible && (
+      {isVisible &&(
         <motion.div
           className={cx(modalStyle.overlay, overlayClassName)}
           initial={{
@@ -62,6 +64,7 @@ const ModalWindowBasket = ({
         >
           <motion.div className={modalStyle.modalPosition}>
             <motion.div className={modalStyle.modalContainer}>
+              { isSuccessPayment ? (
               <div
                 className={cx(modalStyle.modal, className)}
                 onClick={(e) => {
@@ -102,8 +105,8 @@ const ModalWindowBasket = ({
                   <div className="order_quantity">
                     <span className="title">Сумма заказа</span>
                     <div className="quantity_info">
-                      {cart.map((item) => (
-                        <span>{item.price} р</span>
+                      {cart.map((item, index) => (
+                        <span key={index}>{item.price} р</span>
                       ))}
                     </div>
                   </div>
@@ -112,6 +115,8 @@ const ModalWindowBasket = ({
                 <a className='to_mainPage' onClick={handleClickMainPage}>Перейти в главное меню</a>
                 {children}
               </div>
+              ) :
+              <p>Загрузка...</p>}
             </motion.div>
           </motion.div>
         </motion.div>

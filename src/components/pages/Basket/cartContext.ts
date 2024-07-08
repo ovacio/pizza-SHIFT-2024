@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { CartItem } from '@/@types/interfacesPizza';
+
 
 interface CartContextProps {
   cart: CartItem[];

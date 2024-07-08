@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
 
-import { Pizza } from '@/@types/interfacesPizza';
 import { Modal, PizzaCard } from '@/components/imports';
 import { getPizzaCatalog } from '@/api/imports';
 

@@ -75,3 +75,17 @@ interface SessionResponse {
   reason: string;
   user: User;
 }
+
+
+interface Profile {
+  firstname: string;
+  middlename: string;
+  lastname: string;
+  email: string;
+  city: string;
+}
+
+interface Data {
+  profile: Profile;
+  phone: string;
+}

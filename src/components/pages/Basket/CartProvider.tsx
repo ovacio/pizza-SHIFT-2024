@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode } from 'react';
-import { CartItem } from '@/@types/interfacesPizza';
+
 import { CartContext } from './cartContext';
 
 interface CartProviderProps {

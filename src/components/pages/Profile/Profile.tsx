@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-import { useSessionUser, updateProfile } from '@/api/imports';
+import { useSessionUser } from '@/api/imports';
 import { getUserData } from '@/api/localStorage';
-import { User } from '@/@types/interfacesApi';
 
 import './profile.scss';
+import { useUpdateProfile } from '@/api/imports';
 
 const UserProfile = () => {
   const { user } = useSessionUser();
@@ -18,7 +18,8 @@ const UserProfile = () => {
   });
 
   const token = localStorage.getItem('AuthToken');
-  const { getSessionUser } = useSessionUser();
+  const { sessionUser } = useSessionUser();
+  const { updateProfile } = useUpdateProfile();
 
   useEffect(() => {
     if (getUserData) {
@@ -51,7 +52,7 @@ const UserProfile = () => {
       (updatedUser) => {
         setFormData(updatedUser);
       },
-      getSessionUser,
+      sessionUser,
     );
   };
 

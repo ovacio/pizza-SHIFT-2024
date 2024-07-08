@@ -15,7 +15,7 @@ const Login = ({ onClose }: LoginProps) => {
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
   const [isCodeVisible, setCodeVisible] = useState(false);
-  const { getSessionUser } = useSessionUser();
+  const { sessionUser } = useSessionUser();
   const { setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const Login = ({ onClose }: LoginProps) => {
 
       if (response.data.success) {
         localStorage.setItem('AuthToken', response.data.token);
-        getSessionUser(localStorage.getItem('AuthToken'));
+        sessionUser(response.data.token);
         setIsLoggedIn(true);
         onClose();
         navigate('/');

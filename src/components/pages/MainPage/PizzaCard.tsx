@@ -1,5 +1,4 @@
 import { API_URL } from '@/constants/constants';
-import { Pizza } from '@/@types/interfacesPizza';
 
 import './mainPage.scss';
 

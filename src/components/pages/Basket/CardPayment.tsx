@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
 
-import { pizzaPayment, postPayment } from '@/api/imports';
+import { usePizzaPayment, postPayment } from '@/api/imports';
+import { getOrderData, getCartData, getPaymentData } from '@/api/imports';
 import { ModalWindowBasket } from '@/components/imports';
-import { DebitCard } from '@/@types/interfacesApi';
 
 import './cardPayment.scss';
 
 const CardPayment = () => {
-  const [isFullOrder, setIsFullOrder] = useState<boolean>(false);
-  const { getCartData, getPaymentData, getOrderData, handleCheckout } = pizzaPayment;
+  const [isFullOrder, setIsFullOrder] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSuccessPayment, setIsSuccessPayment] = useState(false)
 
   const [formData, setFormData] = useState<DebitCard>({
     pan: '',
     expireDate: '',
     cvv: '',
   });
+
+  const { checkout } = usePizzaPayment();
 
   // Валидация для карты
   const isNumberCardValid = formData.pan.length === 9 && /^\d{4}\s\d{4}$/.test(formData.pan);
@@ -39,7 +41,8 @@ const CardPayment = () => {
     const paymentData = getPaymentData();
     const orderData = getOrderData();
 
-    postPayment(await handleCheckout(orderData, cartData, paymentData));
+    const successPayment = await postPayment(checkout(orderData, cartData, paymentData));
+    setIsSuccessPayment(successPayment.success)
 
     setIsVisible(true);
   };
@@ -116,7 +119,7 @@ const CardPayment = () => {
           </button>
         </div>
       </div>
-      <ModalWindowBasket isVisible={isVisible} onClose={() => setIsVisible(false)} />
+      <ModalWindowBasket isVisible={isVisible} onClose={() => setIsVisible(false)} isSuccessPayment={isSuccessPayment} />
     </>
   );
 };

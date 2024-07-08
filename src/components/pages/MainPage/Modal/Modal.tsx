@@ -6,7 +6,6 @@ import cx from 'classnames';
 import { CrossLogo } from '@/assets/index';
 import { getPizzaCatalog } from '@/api/imports';
 import { translationIngredients, translationSizesPizza } from '@/constants/translationList';
-import type { Pizza, PizzaToppings } from '@/@types/interfacesPizza';
 import { API_URL } from '@/constants/constants';
 import { useCart } from '@/components/imports';
 
