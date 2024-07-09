@@ -4,7 +4,7 @@ import './mainPage.scss';
 
 export interface PizzaCardProps {
   pizza: Pizza;
-  openModal: (id: number) => void;
+  openModal: () => void;
 }
 
 const PizzaCard = ({ pizza, openModal }: PizzaCardProps) => (
@@ -18,7 +18,7 @@ const PizzaCard = ({ pizza, openModal }: PizzaCardProps) => (
       <div className="pizza_price">
         <h3>от {pizza.sizes[0].price} ₽</h3>
       </div>
-      <button className="animated-button" onClick={() => openModal(pizza.id)}>
+      <button className="animated-button" onClick={() => openModal()}>
         <span>Выбрать</span>
         <span></span>
       </button>

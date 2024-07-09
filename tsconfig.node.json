@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noEmit": true,
-    "typeRoots": ["./src/@types", "./node_modules/@types"]
+    "typeRoots": ["@types", "./node_modules/@types"]
   },
   "include": ["vite.config.ts"]
 }

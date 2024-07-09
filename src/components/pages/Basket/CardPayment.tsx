@@ -9,7 +9,8 @@ import './cardPayment.scss';
 const CardPayment = () => {
   const [isFullOrder, setIsFullOrder] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [isSuccessPayment, setIsSuccessPayment] = useState(false)
+  const [isSuccessPayment, setIsSuccessPayment] = useState(false);
+  const [isDataPayment, setIsDataPayment] = useState<PostData>();
 
   const [formData, setFormData] = useState<DebitCard>({
     pan: '',
@@ -42,7 +43,9 @@ const CardPayment = () => {
     const orderData = getOrderData();
 
     const successPayment = await postPayment(checkout(orderData, cartData, paymentData));
-    setIsSuccessPayment(successPayment.success)
+    const dataPayment = checkout(orderData, cartData, paymentData);
+    setIsSuccessPayment(successPayment.success);
+    setIsDataPayment(dataPayment);
 
     setIsVisible(true);
   };
@@ -119,7 +122,12 @@ const CardPayment = () => {
           </button>
         </div>
       </div>
-      <ModalWindowBasket isVisible={isVisible} onClose={() => setIsVisible(false)} isSuccessPayment={isSuccessPayment} />
+      <ModalWindowBasket
+        isVisible={isVisible}
+        onClose={() => setIsVisible(false)}
+        isSuccessPayment={isSuccessPayment}
+        isDataPayment={isDataPayment}
+      />
     </>
   );
 };

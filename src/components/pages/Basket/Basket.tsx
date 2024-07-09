@@ -11,21 +11,18 @@ import './basket.scss';
 const Basket = () => {
   const { cart, setCart, updatePricePlus, updatePriceMinus } = useCart();
   const { isLoggedIn } = useAuth();
-  const [costBasket, setCostBasket] = useState<number>(0);
-  const [countElement, setCountElement] = useState<number>(1);
+  const [ costBasket, setCostBasket ] = useState<number>(0);
+  const [ countElement, setCountElement ] = useState<number>(1);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(cart);
     let cost = 0;
     cart.forEach((item) => {
       cost += item.price;
     });
     setCostBasket(cost);
   }, [cart]);
-
-  useEffect(() => {}, []);
 
   const HandleClickInformationOrder = () => {
     if (isLoggedIn) {
