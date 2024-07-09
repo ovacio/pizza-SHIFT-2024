@@ -52,15 +52,6 @@ interface PostData {
   }[];
 }
 
-interface UserInfo {
-  phone: string;
-  firstname: string;
-  middlename: string;
-  lastname: string;
-  email: string;
-  city: string;
-}
-
 interface User {
   phone: string;
   firstname: string;
@@ -76,7 +67,6 @@ interface SessionResponse {
   user: User;
 }
 
-
 interface Profile {
   firstname: string;
   middlename: string;
@@ -85,7 +75,28 @@ interface Profile {
   city: string;
 }
 
+interface Person {
+  firstname: string;
+  middlename: string;
+  lastname: string;
+  email: string;
+}
+
+interface Orders {
+  person: Person;
+  receiverAddress: RecipientAddress;
+  status: number;
+  cancellable: boolean;
+}
+
 interface Data {
   profile: Profile;
   phone: string;
+}
+
+interface SignIn { 
+  success: boolean;
+  reason: string;
+  user: User;
+  token: string;
 }

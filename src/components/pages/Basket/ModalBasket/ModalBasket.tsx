@@ -9,7 +9,7 @@ import { translationIngredients, translationSizesPizza } from '@/constants/trans
 
 import modalStyle from './modalBasket.module.scss';
 import './modalBasket.scss';
-import { useEffect, useState } from 'react';
+
 export interface ModalBasket {
   isVisible: boolean;
   children?: React.ReactNode;

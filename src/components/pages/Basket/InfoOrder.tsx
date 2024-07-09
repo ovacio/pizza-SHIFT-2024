@@ -75,7 +75,7 @@ const InfoOrder = () => {
     };
 
     localStorage.setItem('information_order', JSON.stringify(newOrder));
-    console.log(localStorage.getItem('information_order'));
+
     navigate('/payment_info');
   };
 

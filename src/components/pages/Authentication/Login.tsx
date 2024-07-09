@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-import { postOtpsCode, useSessionUser } from '@/api/imports';
+import { postOtpsCode, useSessionUser, postSignIn } from '@/api/imports';
 import { useAuth } from '@/components/imports';
 
 import './login.scss';
@@ -32,24 +31,16 @@ const Login = ({ onClose }: LoginProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('https://shift-backend.onrender.com/users/signin', {
-        phone,
-        code: parseInt(code, 10),
-      });
 
-      if (response.data.success) {
-        localStorage.setItem('AuthToken', response.data.token);
-        sessionUser(response.data.token);
+    const response = await postSignIn(phone, parseInt(code, 10));
+
+      if (response.success) {
+        localStorage.setItem('AuthToken', response.token);
+        sessionUser(response.token);
         setIsLoggedIn(true);
         onClose();
         navigate('/');
-      } else {
-        console.error('Login failed: ', response.data.reason);
       }
-    } catch (error) {
-      console.error('Login failed', error);
-    }
   };
 
   return (
