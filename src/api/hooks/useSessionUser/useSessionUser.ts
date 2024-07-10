@@ -13,7 +13,7 @@ const useSessionUser = () => {
 
     if (response.success) {
       setUser(response.user);
-      putUserData(response.user)
+      putUserData(response.user);
     } else {
       setUser(null);
     }

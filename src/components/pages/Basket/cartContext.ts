@@ -1,6 +1,5 @@
 import React, { createContext } from 'react';
 
-
 interface CartContextProps {
   cart: CartItem[];
   setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;

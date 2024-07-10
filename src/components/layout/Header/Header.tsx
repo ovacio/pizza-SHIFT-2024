@@ -1,6 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 
-import { logoSite, logoProfile, logoBasket, logoExit, orders} from '@/assets/index';
+import { logoBasket, logoExit, logoProfile, logoSite, orders } from '@/assets/index';
 import { useAuth } from '@/components/imports';
 
 import './header.scss';
@@ -15,7 +15,6 @@ const Header = () => {
     navigate('/');
   };
 
-
   return (
     <nav className="header_navigation">
       <div className="header_left">
@@ -28,8 +27,8 @@ const Header = () => {
             <span>Профиль</span>
           </NavLink>
         </div>
-        <div className="header_orders" style={{display: isLoggedIn ? 'flex' : 'none'}}>
-          <NavLink to=''>
+        <div className="header_orders" style={{ display: isLoggedIn ? 'flex' : 'none' }}>
+          <NavLink to="/orders">
             <img src={orders} alt="Orders" />
             <span>Заказы</span>
           </NavLink>

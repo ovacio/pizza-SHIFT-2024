@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { BasketEmpty, Cross2 } from '@/assets';
 import { useAuth, useCart } from '@/components/imports';
-import { translationIngredients } from '@/constants/translationList';
-import { API_URL } from '@/constants/constants';
+import { API_URL } from '@/utils/constants';
+import { translationIngredients } from '@/utils/translationList';
 
 import './basket.scss';
 
 const Basket = () => {
   const { cart, setCart, updatePricePlus, updatePriceMinus } = useCart();
   const { isLoggedIn } = useAuth();
-  const [ costBasket, setCostBasket ] = useState<number>(0);
-  const [ countElement, setCountElement ] = useState<number>(1);
+  const [costBasket, setCostBasket] = useState<number>(0);
+  const [countElement, setCountElement] = useState<number>(1);
 
   const navigate = useNavigate();
 

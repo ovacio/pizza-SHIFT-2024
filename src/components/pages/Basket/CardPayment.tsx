@@ -1,7 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { usePizzaPayment, postPayment } from '@/api/imports';
-import { getOrderData, getCartData, getPaymentData } from '@/api/imports';
+import {
+  getCartData,
+  getOrderData,
+  getPaymentData,
+  getPizzaOrders,
+  postPayment,
+  usePizzaPayment,
+} from '@/api/imports';
 import { ModalWindowBasket } from '@/components/imports';
 
 import './cardPayment.scss';
@@ -46,6 +52,13 @@ const CardPayment = () => {
     const dataPayment = checkout(orderData, cartData, paymentData);
     setIsSuccessPayment(successPayment.success);
     setIsDataPayment(dataPayment);
+
+    const token = localStorage.getItem('AuthToken');
+
+    if (token) {
+      const response = await getPizzaOrders(token);
+      console.log(response);
+    }
 
     setIsVisible(true);
   };

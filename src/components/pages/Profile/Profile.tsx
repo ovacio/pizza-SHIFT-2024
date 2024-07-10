@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useSessionUser } from '@/api/imports';
+import { useUpdateProfile } from '@/api/imports';
 import { getUserData } from '@/api/localStorage';
 
 import './profile.scss';
-import { useUpdateProfile } from '@/api/imports';
 
 const UserProfile = () => {
   const { user } = useSessionUser();

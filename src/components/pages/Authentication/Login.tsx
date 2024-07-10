@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { postOtpsCode, useSessionUser, postSignIn } from '@/api/imports';
+import { postOtpsCode, postSignIn, useSessionUser } from '@/api/imports';
 import { useAuth } from '@/components/imports';
 
 import './login.scss';
@@ -34,13 +34,13 @@ const Login = ({ onClose }: LoginProps) => {
 
     const response = await postSignIn(phone, parseInt(code, 10));
 
-      if (response.success) {
-        localStorage.setItem('AuthToken', response.token);
-        sessionUser(response.token);
-        setIsLoggedIn(true);
-        onClose();
-        navigate('/');
-      }
+    if (response.success) {
+      localStorage.setItem('AuthToken', response.token);
+      sessionUser(response.token);
+      setIsLoggedIn(true);
+      onClose();
+      navigate('/');
+    }
   };
 
   return (

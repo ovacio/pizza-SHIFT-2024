@@ -1,16 +1,16 @@
+import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useState, useCallback, useEffect } from 'react';
 import cx from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { CrossLogo } from '@/assets/index';
 import { getPizzaCatalog } from '@/api/imports';
-import { translationIngredients, translationSizesPizza } from '@/constants/translationList';
-import { API_URL } from '@/constants/constants';
+import { CrossLogo } from '@/assets/index';
 import { useCart } from '@/components/imports';
+import { API_URL } from '@/utils/constants';
+import { translationIngredients, translationSizesPizza } from '@/utils/translationList';
 
-import modalStyle from './modal.module.scss';
 import './modal.scss';
+import modalStyle from './modal.module.scss';
 
 export interface Modal {
   isVisible: boolean;
@@ -184,9 +184,7 @@ const Modal = ({ isVisible, children, pizza, className, overlayClassName, onClos
                               >
                                 <img src={`${API_URL}${topping.img}`} />
                                 <div className="topping_name">
-                                  <span>
-                                    {translationIngredients[topping.name]}
-                                  </span>
+                                  <span>{translationIngredients[topping.name]}</span>
                                 </div>
                                 <div className="topping_cost">
                                   <span>{topping.cost} ₽</span>

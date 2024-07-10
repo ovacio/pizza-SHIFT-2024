@@ -20,4 +20,4 @@ export const getUserData = (): User => {
 
 export const putUserData = (order: User) => {
   localStorage.setItem('user', JSON.stringify(order));
-}
+};

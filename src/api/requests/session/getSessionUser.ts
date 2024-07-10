@@ -6,5 +6,5 @@ export const getSessionUser = async (token: string) => {
       Authorization: `Bearer ${token}`,
     },
   });
-  return response.data
+  return response.data;
 };

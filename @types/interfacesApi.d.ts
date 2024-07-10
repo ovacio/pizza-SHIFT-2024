@@ -82,11 +82,17 @@ interface Person {
   email: string;
 }
 
-interface Orders {
+interface Order {
+  _id: string;
   person: Person;
   receiverAddress: RecipientAddress;
   status: number;
   cancellable: boolean;
+}
+
+interface OrdersResponse {
+  orders: Order[];
+  success: boolean;
 }
 
 interface Data {
@@ -94,7 +100,7 @@ interface Data {
   phone: string;
 }
 
-interface SignIn { 
+interface SignIn {
   success: boolean;
   reason: string;
   user: User;

@@ -1,7 +1,7 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-import { Modal, PizzaCard } from '@/components/imports';
 import { getPizzaCatalog } from '@/api/imports';
+import { Modal, PizzaCard } from '@/components/imports';
 
 import './mainPage.scss';
 

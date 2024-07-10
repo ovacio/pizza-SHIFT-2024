@@ -1,14 +1,14 @@
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
 import cx from 'classnames';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { CrossLogo, accept } from '@/assets/index';
+import { accept, CrossLogo } from '@/assets/index';
 import { useCart } from '@/components/imports';
-import { translationIngredients, translationSizesPizza } from '@/constants/translationList';
+import { translationIngredients, translationSizesPizza } from '@/utils/translationList';
 
-import modalStyle from './modalBasket.module.scss';
 import './modalBasket.scss';
+import modalStyle from './modalBasket.module.scss';
 
 export interface ModalBasket {
   isVisible: boolean;
@@ -42,7 +42,7 @@ const ModalWindowBasket = ({
   const handleCloseClick = () => {
     onClose();
     clearStorage();
-    navigate('/')
+    navigate('/');
   };
 
   const handleClickMainPage = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {

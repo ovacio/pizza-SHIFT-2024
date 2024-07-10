@@ -1,9 +1,5 @@
 const usePizzaPayment = () => {
-  const checkout = (
-    orderData: InformationOrder,
-    cartData: CartItem[],
-    paymentData: DebitCard,
-  ) => {
+  const checkout = (orderData: InformationOrder, cartData: CartItem[], paymentData: DebitCard) => {
     const receiverAddress = orderData.receiverAddress
       ? {
           street: orderData.receiverAddress[0].street,
@@ -51,7 +47,7 @@ const usePizzaPayment = () => {
 
     return postData;
   };
-  return { checkout }
+  return { checkout };
 };
 
 export default usePizzaPayment;
